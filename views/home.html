@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang='en' dir='ltr'>
+    <head>
+        <meta charset='utf-8'>
+        <title>School Book</title>
+        <link rel='stylesheet' href='style.css'>
+    </head>
+    <body>
+        <!-- <div class='dropdown'>
+         <button class='dropbtn'>Dropdown</button>
+         <div class='dropdown-content'>
+           <a href='#'>Link 1</a>
+           <a href='#'>Link 2</a>
+           <a href='#'>Link 3</a>
+         </div>
+        </div> -->
+        <div id = teacher-form>
+            <form action='/newTeacher' method='post'>
+                 First name:<br>
+                 <input type='text' name='firstname'><br>
+                 Last name:<br>
+                 <input type='text' name='lastname'><br>
+                 <input type='submit' name='teacher-submit' value='Create'>
+            </form>
+        </div>
+
+        <div id = student-form>
+            <form action='/newStudent' method='post'>
+                 First name:<br>
+                 <input type='text' name='firstname'><br>
+                 Last name:<br>
+                 <input type='text' name='lastname'><br>
+                 <input type='submit' name='student-submit' value='Create'>
+            </form>
+        </div>
+    </body>
+</html>
