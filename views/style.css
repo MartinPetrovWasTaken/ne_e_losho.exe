@@ -39,3 +39,20 @@
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+#overlay {
+  position: absolute; /* Sit on top of the page content */ /* Hidden by default */
+  width: 20%; /* Full width (cover the whole page) */
+  height: 60%; /* Full height (cover the whole page) */
+  top: 50px;
+  left: auto;
+  right: 200px;
+  bottom: auto;
+  border: 3px solid black;
+}
+
+.dropdown{
+  position: absolute;
+  left: 50px;
+  top: 50px;
+}

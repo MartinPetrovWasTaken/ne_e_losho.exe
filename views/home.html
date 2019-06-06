@@ -1,30 +1,48 @@
 <!DOCTYPE html>
 <html lang='en' dir='ltr'>
     <head>
-        <meta charset='utf-8'>
+       <link rel='stylesheet' href='style.css'>
+        <meta http-equiv=Content-Security-Policy: default-src 'self'; img-src * data:; media-src *; style-src 'self' 'unsafe-inline'>
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com"> -->
         <title>School Book</title>
-        <link rel='stylesheet' href='style.css'>
+        <!-- <link rel='stylesheet' href='style.css'> -->
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <!-- <script src="app.js"></script> -->
+        <script type="text/javascript">
+            $(document).ready(() => {
+              var count = 0;
+            	//alert('DOM loaded');
+            	$('#daebratmee').click(function() {
+                  count++;
+            	    var itemId1 = $('#fname').val();
+                  var itemId2 = $('#lname').val();
+            	    var item = $("<a/>", { text: itemId1 + ' '+ itemId2,
+            				    id: '_'+ itemId1 + itemId2  +count });
+
+            	    var remove = $("<a id=\""+count+"\"href=\"#\">remove</a>");
+                        $(remove).click(function() {
+            	    	$(item).remove();
+            	    });
+
+            	    //item.append("&nbsp;");
+            	    item.append(remove);
+            	    $('.dropdown-content').append(item);
+            	});
+            });
+        </script>
     </head>
     <body>
-        <!-- <div class='dropdown'>
-         <button class='dropbtn'>Dropdown</button>
-         <div class='dropdown-content'>
-           <a href='#'>Link 1</a>
-           <a href='#'>Link 2</a>
-           <a href='#'>Link 3</a>
-         </div>
-        </div> -->
-        <div id = teacher-form>
-            <form action='/newTeacher' method='post'>
-                 First name:<br>
-                 <input type='text' name='firstname'><br>
-                 Last name:<br>
-                 <input type='text' name='lastname'><br>
-                 <input type='submit' name='teacher-submit' value='Create'>
+              <div>
+                  <ul id = "list"/>
+              </div>
+              <form action='/newTeacher' method='POST' class = "teacherForm">
+                 First Teachers name:<br>
+                 <input type='text'  id = "fname" name='firstname'><br>
+                 Last Teachers name:<br>
+                 <input type='text' id = "lname" name='lastname'><br>
             </form>
-        </div>
+            <button id = 'daebratmee'>Create Teacher</button>
 
-        <div id = student-form>
             <form action='/newStudent' method='post'>
                  First name:<br>
                  <input type='text' name='firstname'><br>
@@ -32,6 +50,24 @@
                  <input type='text' name='lastname'><br>
                  <input type='submit' name='student-submit' value='Create'>
             </form>
-        </div>
+
+            <!-- <div id="navbar" id="top">
+              <div id="pageselection">
+                  <div id="HomeButton"> <a href="#top"> HOME </a> </div>
+                  <div id="AboutButton"> <a href="#About"> ABOUT </a> </div>
+              </div>
+            </div> -->
+            <div id = "overlay">
+              <div class='dropdown'>
+                <a id = "teachers-drop">Teachers</a><button class='dropbtn'></button>
+                 <div class='dropdown-content'>
+                   <!-- <ul id = ></ul> -->
+                   <!-- <a href='#'>Link 1</a>
+                   <a href='#'>Link 2</a>
+                   <a href='#'>Link 3</a> -->
+                </div>
+              </div>
+            </div>
+
     </body>
 </html>
